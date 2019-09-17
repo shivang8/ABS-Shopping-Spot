@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+	<form action="/Login" method="post">
+		{% if error == 1 %}
+			<font color='red'>Bad Request</font>
+		{% elif error == 2 %}
+			<font color='red'>DB Error</font>
+		{% elif error == 3 %}
+			<font color='red'>Invalid Credentials</font>
+		{% endif %}
+		<table>
+			<tr>
+				<td>USERNAME</td>
+				<td><input type="text" name="username"></td>
+			</tr>
+			<tr>
+				<td>PASSWORD</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+		</table>
+		<br><br>
+		<button>Login</button>
+	</form>
+{% endblock %}

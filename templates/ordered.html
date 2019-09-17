@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ordered
+{% endblock %}
+
+{% block head %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+	<h2>Order Successful</h2>
+	{% if line%}
+	<h3>Order ID : {{line.id}}</h3>
+	<h4>Date of Order : {{line.dt.date()}} <br> Time of order : {{line.dt.time()}}</h4>
+	<table>
+		<tr>
+			<td>Product</td>
+			<td>Price (Per Unit)</td>
+			<td>Quantity</td>
+			<td>Sub-Total</td>
+		</tr>
+		<tr>
+			<td>Table</td>
+			<td>Rs. 1000</td>
+			<td>{{line.i1}}</td>
+			<td>{{(line.i1|int * 1000)|string}}</td>
+		</tr>
+		<tr>
+			<td>Chair</td>
+			<td>Rs. 800</td>
+			<td>{{line.i2}}</td>
+			<td>{{(line.i2|int * 800)|string}}</td>
+		</tr>
+		<tr>
+			<td>Fan</td>
+			<td>Rs. 1,200</td>
+			<td>{{line.i3}}</td>
+			<td>{{(line.i3|int * 1200)|string}}</td>
+		</tr>
+		<tr>
+			<td>Sofa Set</td>
+			<td>Rs. 10,000</td>
+			<td>{{line.i4}}</td>
+			<td>{{(line.i4|int * 10000)|string}}</td>
+		</tr>
+		<tr>
+			<td>Surprise Me</td>
+			<td>Rs. 5,000</td>
+			<td>{{line.i5}}</td>
+			<td>{{(line.i5|int * 5000)|string}}</td>
+		</tr>
+		<tr>
+			<td><b>TOTAL</b></td>
+			<td></td>
+			<td></td>
+			<td><b>{{line.TotalPrice}}</b></td>
+		</tr>
+	</table>
+	{% endif %}
+	<a href="home"><button>Home</button></a>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add
+{% endblock %}
+
+{% block head %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+	<h2> Order Here </h2><br><br>
+	<form action="/ordered" method="post">
+		<table>
+			<tr>
+				<td>Product</td>
+				<td>Price (Per Unit)</td>
+				<td>Quantity</td>
+			</tr>
+			<tr>
+				<td>Table</td>
+				<td>Rs. 1000</td>
+				<td>
+					<select name="select_1">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Chair</td>
+				<td>Rs. 800</td>
+				<td>
+					<select name="select_2">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Fan</td>
+				<td>Rs. 1,200</td>
+				<td>
+					<select name="select_3">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Sofa Set</td>
+				<td>Rs. 10,000</td>
+				<td>
+					<select name="select_4">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Surprise Me</td>
+				<td>Rs. 5,000</td>
+				<td>
+					<select name="select_5">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br><br>
+		<button>Order Now</button>
+	</form>
+{% endblock %}
