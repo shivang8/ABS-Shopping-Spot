@@ -4,8 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
+#For Using pymysql or mysql on AWS
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:admin123@absdb.cygtiwji8ayl.ap-south-1.rds.amazonaws.com:3306/absdb'
+#For using postgresql on AWS
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin_db1:admin_db1@db1.c3dqa5cxwo4k.ap-south-1.rds.amazonaws.com:5432/admin_db1'
+#For local machine
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
 db = SQLAlchemy(app)
@@ -95,5 +98,7 @@ def index():
 	return render_template('index.html',error=0)
 
 if __name__ == '__main__':
+	#For Local Machine
 	#app.run(host='127.0.0.1', port=12345, debug = True)
+	#For Remote Machine or VM
 	app.run(host='0.0.0.0', port=80, debug = True)
